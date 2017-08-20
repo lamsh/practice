@@ -20,10 +20,10 @@ public class DragDrop extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {        
-        // ジェスチャーソースのDRAG_DETECTEDイベントを処理する
+        // ドラッグ元のDRAG_DETECTEDイベントを処理する
         source.setOnDragDetected(event -> dragDrop(event));
         
-        // ジェスチャーターゲットのDRAG_OVERイベントを処理
+        // ドロップ先のDRAG_OVERイベントを処理
         target.setOnDragOver(event -> dragOver(event));
         
         // ドラッグドロップの視覚効果を設定
@@ -110,7 +110,7 @@ public class DragDrop extends Application {
     public void dragDone(DragEvent event){
         // ドロップ後のドロップ元の処理を設定
         if (event.getTransferMode() == TransferMode.MOVE){
-            source.setText("DROP FINISH");
+            source.setText("");
         }        
         event.consume();        
     }
